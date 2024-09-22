@@ -51,4 +51,19 @@ In contrast for Parallel processing
 
 #### Now in the directory called  for leveraging sequential programming you can try out for better understanding of go-routine the example before going down -----------
 
-#### So now let see how we can do the same thing using go-routine
+#### So now let see how we can do the same thing using go-routine so lets go to the go-routine directory where you can find proper explanation of it.
+
+#### Lets understand about waitGroup which is more reliable way to execute go-routine.
+
+### Main go-routine
+    - Main function in the main package is the main go-routine.
+    - All go-routines are started form the main go-routine, these go-routine can start multiple other go-routine and so on. 
+    - But the Main go-routine represent the main program. Once it exit that means entire program exits.
+    - Go-routine do not have parents and children, when we starts a go-routine, it just executes alongside all other go-routine. Each go-routine exits only when its function returns. 
+    The only exception to that is that all go-routine exits when the main go-routine, the one that runs  the main function exit
+
+#### So let's understand the main go routine in the directory called main-go-routine 
+So here in program you find this:
+-So sometime `In Process` printed later on and some time first.
+- So basically output is non deterministic.
+-So basically when `In Process` printed later on shows go-routine does not have parent-child relationship and they exist as a independent execution. -Because `In Process` was printed after the start method printed its statement and exited. This means process and start executing completely independent of each other, this also the reason why our output is not deterministic.

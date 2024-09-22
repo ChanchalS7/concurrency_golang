@@ -13,7 +13,7 @@ func calculateSquare(i int) {
 }
 func main() {
 
-	//state of the programm return the current local time when we start program
+	//start of the programm return the current local time when we start program
 	start:=time.Now()
 
 	for i := 1; i <= 10000; i++ {
