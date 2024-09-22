@@ -26,9 +26,3 @@ func start(){
 func process(){
 fmt.Println("In process")
 }
-
-
-/*
-
-
-*/

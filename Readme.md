@@ -67,3 +67,18 @@ So here in program you find this:
 -So sometime `In Process` printed later on and some time first.
 - So basically output is non deterministic.
 -So basically when `In Process` printed later on shows go-routine does not have parent-child relationship and they exist as a independent execution. -Because `In Process` was printed after the start method printed its statement and exited. This means process and start executing completely independent of each other, this also the reason why our output is not deterministic.
+
+
+### Anonymous go-routine
+- In Golang, anonymous function are those functions that don't have any name. Simply put, anonymous functions don't use any variables as a name when they are declared.
+- Anonymous functions in golang can also be called using go-routine.
+Syntax:
+```
+go func(){
+
+
+}(args...)
+```
+
+So basically no difference in behavior when calling simple go-routine or anonymous method.
+
