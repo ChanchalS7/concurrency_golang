@@ -82,17 +82,3 @@ go func(){
 
 So basically no difference in behavior when calling simple go-routine or anonymous method.
 
-
-
-### Go runtime scheduler 
-
-So what happens when you start a go program ?
--So when we start Go program. The Go program will launch operating systems threads equal to the number of logical CPUs that are available to it. 
-- Now these threads are OS thread and they're completely managed by the kernel or the operating system. From creating to blocking to scheduling then on CPU corse, The responsibility is off the operating system.
-
-We can find out the number of logical processes in our system using the   `runtime.Numcpus` method.
-
--The logical cores are
-`Logical cores = number of physical cores* number of threads that can run on each core(hardware threads)`
-Which we also call as the hardware threads.
-So let's see how we can calculate the logical processors on our system.
