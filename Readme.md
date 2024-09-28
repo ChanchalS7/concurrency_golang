@@ -134,3 +134,105 @@ Since go-routines are cheap you can launch hundreds and thousands of go-routines
 
 
 ### WaitGroups
+- In the last or above section , we see the problem that - The problem with go-routines was the `main go-routine terminating` before the go-routines completed or even began their execution.
+
+To wait for multiple go-routines to finish, we have much elegant solution that `timeout` method. And these are the` waitgroups`.
+
+- A wait group is a `synchronized primitive` that allows multiple go-routines to wait for each other.
+- This package acts like a counter that block execution in a structured way until its internal counter becomes 0.
+
+[syntax] 👍```
+    import "sync"
+    var wg sync.WaitGroup
+
+
+
+
+#### Wait groups - Methods
+   ` wg.Add(int)`
+   - This indicated the number of available go-routines to wait for. The integer in the functions parameters acts like a counter.
+
+  `  wg.Wait()`
+   - This methods blocks the execution of code until the internal counter reduces to value=0.
+
+  ` wg.Done()`
+   -This method decreases the internal count parameter in the add method by one.
+
+   Let us understand it by example:
+  [page33]
+  -Assuming we have three go-routines running and we decide to use the WaitGroup. Initially the counter would be zero then we add three go-routines to wait group using the add method. The internal counter goes to three.
+  - We also have wait method that will block the execution of code until this internal counter reduces to a zero value.
+  - Let's say G1 finishes its execution and calls done function. This would reduces the counter by 1.
+  - Now, when G2 finished its execution and calls the done function. The counter again get reduced by one, and similarly for G3.
+  Note-all of this would e happening concurrently and not link this sequentially, so when counter goes to zero. The wait function finally unblock before execution.
+  Now go to WaitGroup directory for understanding it through example.
+
+
+
+  ### Channels 
+  - In Go channels are a means through which different go-routines communicate. - It is basically a programming construct, That allows us to move data between different parts of our code often from different go-routines.
+  - Along with go-routines channel makes concurrent programming convenient, fun and lowers the difficulty of concurrent programming.
+
+  `Do not communicate by sharing memory; instead share memory by communicating.`
+    `-Rob Pike`
+
+ - So the traditional threading models which are commonly used when we write, Java or C++, requires the programmer to communicate between threads using shared memory.
+
+ - Communicate by sharing memory - `Threads and mutexes`.
+ Typically, shared data structures are protected by locks and threads contained over those logs to access the data. Hence communicating with each other by sharing memory in form of data.
+ - While Go's concurrency primitives which go-routines and channels provide us and elegant and distinct means of structuring concurrent software. Instead of explicitly using locks to mediate access to shared data.
+ - Go encourages the use of `channels` to pass reference or memory to data between go-routines.
+ - Share memory by communicating - `Go-routines and channels`
+ -This approach ensues only one Go-routines has access to the data at a given time. Hence, sharing memory by communicating.
+
+ ##### Channels
+ - The communication in channel is `bidirectional by default`, meaning that you can `send and receive` values from the `same channel`.
+ - By default, channels send and receive until the other side is ready.
+ - This allows go-routines to synchronize without explicit locks or condition variable.
+
+ - Now each channel can hold a data only  of a particular data type. Let's say it could only string or integer type and also go uses special keyword which declaring channel called `chan`
+  [Syntax]
+  `var c chan string`
+  
+  -Alternatively we can use the make function to declare and initialize the channel.
+`  c:= make(chan string)`
+- Channel type can be bi-directional or single-directional but for our course, we would be limiting the discussion to the bi-directional channel.
+-Now, a channel is meant for communicating between go-routines.
+- Hence, it has many operations such as [channel-operations]
+        - Sending a value
+        - Receiving a value
+        - Closing a channel
+        - Querying Buffer of a channel
+        - Querying length of a channel
+
+   In Details understand the above operations.     
+
+   ``Channel operations: Sending a value``
+   `ch <- v` 
+   - `<-` is a channel send operator
+   - The operator is used to send a value to the channel.
+   - v must be a value which assignable to the element type of channel `ch`.
+
+
+   ``Channel operations: Receiving a value``
+   `val:=<-ch`
+   - `<-` is a channel receiving operator.
+   - This is used to receive a value from a channel.
+   - val is variable in which the read data from the channel will be stored.
+
+
+    ``Channel operations: Closing a channel``
+    `close(ch)`
+    -`close()` is a built-in function.
+    - The argument of a close function call must be a channel value.
+
+    ``Channel operations: Querying buffer of a channel``
+    `cap(ch)`
+    -`cap()` is a built-in function.
+    - returns an integer denoting the buffer of the specified channel.
+
+
+    ``Channel operations: Querying length of a channel``
+    `len(ch)`
+    -`len()` is a built-in function.
+    - returns an integer denoting the length of the specified channel.
