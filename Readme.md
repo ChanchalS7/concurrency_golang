@@ -275,4 +275,6 @@ Let us understand it by example:
   - The length of a channel is the number of elements that are already there in the channel.
   - So, length represent the number of elements queued in the buffer of the channel.
   - Length of a channel is always less then or equal to the capacity of the channel.`(length<=capacity)`
-  - For unbuffered channel length is alway zero.
+  - For unbuffered channel length is alway `zero`.
+
+  Now let's look at the directory called [buffered-channels]
