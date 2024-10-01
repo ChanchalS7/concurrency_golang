@@ -308,3 +308,31 @@ Let us understand it by example:
 
 - go to directory call [channels-for-range]
 - just revising the for-range for channel.
+
+### Select statement -
+
+- The select statement in Go looks like a switch statement but for channel.
+- The select statement lets go-routine wait on multiple communication operations(sending or receiving).
+- In select, each of the case statement waits for a send or receive operation from a channel.
+- Where as in switch, each of the case statement, is an expression.
+
+- select blocks until any of the case statement are ready.
+- If multiple case statements are ready, then it selects one at random and proceeds.
+
+[Syntax]
+
+```select {
+case channel_send_or_receive :
+//do something
+
+case channel_send_or_receive :
+// do something
+}
+```
+
+- and its followed by default case statement.
+
+- The select statement lets a go-routine wait on multiple communication operations.
+- select along with channels and go-routines becomes a very `powerful tool for managing synchronization and concurrency`
+- Let's take one scenario : we have to fetch data from server1 or server2, and we make both the call same time using a select statement, and whichever server gives the data first, we go ahead and process the data from that particular case statement. In cases like these, select statement is just a `boon` for all the Golang developers.
+- so now let's look at example in code directory called [select-statement]
