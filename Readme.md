@@ -303,3 +303,8 @@ Let us understand it by example:
   - sending to a channel after it has been closed.
   - closing an already closed channel.
   - Lets go to directory call [panic-situations] in the example, to understand the panic situations much better.
+
+### Channels : for-range
+
+- go to directory call [channels-for-range]
+- just revising the for-range for channel.
