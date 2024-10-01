@@ -293,4 +293,13 @@ Let us understand it by example:
 - Over here, [ok] variable receive a Boolean value of true or false.
 - If ok, is true, this means, that the channel is open.
 - If ok , is false, this means the channel is closed and there are no more values to receive.
-- Now, go to directory [closing-channel] and see the example with code.
+- Now, go to directory [closing-channel] and see the example with code. For how close operation works in a channel.
+
+### Panic situations
+
+- In Go language, `panic` is just like an exception, it also arises at runtime.
+- Panic means an unexpected condition arises in your Go program due to which the execution of your program is terminated.
+- There are a few scenarios that can cause panic while working with channel such as -
+  - sending to a channel after it has been closed.
+  - closing an already closed channel.
+  - Lets go to directory call [panic-situations] in the example, to understand the panic situations much better.
