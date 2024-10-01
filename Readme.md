@@ -336,3 +336,10 @@ case channel_send_or_receive :
 - select along with channels and go-routines becomes a very `powerful tool for managing synchronization and concurrency`
 - Let's take one scenario : we have to fetch data from server1 or server2, and we make both the call same time using a select statement, and whichever server gives the data first, we go ahead and process the data from that particular case statement. In cases like these, select statement is just a `boon` for all the Golang developers.
 - so now let's look at example in code directory called [select-statement]
+
+#### select statement : default case
+
+- Like switch statement, we can have a default case in select too.
+- This default case will be executed if no send it or receive operation is ready on any of the case statements.
+- Default block makes the select `non-blocking` as default case will be executed if all the other cases are blocked.
+- Now let's look into example in the same category.
