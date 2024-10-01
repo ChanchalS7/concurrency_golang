@@ -278,3 +278,19 @@ Let us understand it by example:
   - For unbuffered channel length is alway `zero`.
 
   Now let's look at the directory called [buffered-channels]
+
+### Closing a channel
+
+- Closing a channel means no more data can be sent to that channel.
+- It is generally done when there's no more data to be sent.
+- We can use the inbuilt `close()` function for the operation.
+
+## [Syntax]
+
+-So whenever we receive value from the channel, while receiving we can also test whether a channel has been closed by assigning a second parameter to the received expression, which is after the name of the variable.
+``v,ok := <-ch`
+
+- Over here, [ok] variable receive a Boolean value of true or false.
+- If ok, is true, this means, that the channel is open.
+- If ok , is false, this means the channel is closed and there are no more values to receive.
+- Now, go to directory [closing-channel] and see the example with code.
