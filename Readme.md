@@ -343,3 +343,9 @@ case channel_send_or_receive :
 - This default case will be executed if no send it or receive operation is ready on any of the case statements.
 - Default block makes the select `non-blocking` as default case will be executed if all the other cases are blocked.
 - Now let's look into example in the same category.
+
+#### select vs switch
+
+- switch - Non-blocking.
+- select - statements can block since they are used with channels, and they can block or receive operation.
+- switch- Deterministic and will run in sequence to select the matching case.
