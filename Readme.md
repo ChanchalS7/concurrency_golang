@@ -348,4 +348,4 @@ case channel_send_or_receive :
 
 - switch - Non-blocking.
 - select - statements can block since they are used with channels, and they can block or receive operation.
-- switch- Deterministic and will run in sequence to select the matching case.
+- switch- Deterministic and will run in sequence to select the matching case..
