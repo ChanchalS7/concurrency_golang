@@ -349,3 +349,13 @@ case channel_send_or_receive :
 - switch - Non-blocking.
 - select - statements can block since they are used with channels, and they can block or receive operation.
 - switch- Deterministic and will run in sequence to select the matching case..
+
+
+
+### Cleaning up go-routines
+
+  #### go-routine leak
+    - Whenever you launch a go-routine function, you must make sure that it will eventually exit.
+    - A go-routine that would never terminate, forever occupies the memory it has reserved. This kind of memory leak is called `go-routine leak`.
+    - Go routine leak if they end up either blocked forever I/O like channel communication or fall into infinite loops.
+    
