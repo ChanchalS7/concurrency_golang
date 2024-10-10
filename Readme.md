@@ -367,3 +367,11 @@ case channel_send_or_receive :
     - As we know, closure is a function that's defined inside another function. And when the closure is called it has access to the outer functions local variables.
     - Let's look at the example by go inside the directory : `spawning-go-routines`
 
+
+### Buffered and Unbuffered Channels (concurrency practices)
+- It is one of the very important concept to know, when to use Buffered channels and when to use Unbuffered channels.
+- We know by default channels are unbuffered and they are easy.
+- While buffered channels might be complicated and you have to pick a size of them.
+
+- Proper use of buffered channel means that you must handle the case where the channels is blocking, which might happen due to waiting on sender/receiver.
+- Buffered channels are useful when you know how many go-routines you have launched, want to limit the number of go-routines you have launched, `want to limit the number of go-routines you will launch`, or want to limit the amount of work that is queued up.
