@@ -358,4 +358,12 @@ case channel_send_or_receive :
     - Whenever you launch a go-routine function, you must make sure that it will eventually exit.
     - A go-routine that would never terminate, forever occupies the memory it has reserved. This kind of memory leak is called `go-routine leak`.
     - Go routine leak if they end up either blocked forever I/O like channel communication or fall into infinite loops.
-    
+
+    - go inside the directory called `go-routine-leak`
+
+
+### Spawning Go-routine closures in a loop
+    - Spinning up go-routines inside a closure.
+    - As we know, closure is a function that's defined inside another function. And when the closure is called it has access to the outer functions local variables.
+    - Let's look at the example by go inside the directory : `spawning-go-routines`
+
